@@ -1,0 +1,17 @@
+manifest:
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: e201b84b04e4fab1844658e71da0b7e340f1cc82
+
+      import:
+        # By using name-allowlist we can clone only the modules that are
+        # strictly needed by the application.
+        name-allowlist:
+          - cmsis_6    # required by the ARM port for Cortex-M
+          - hal_stm32  # required by the nucleo_f446re board (STM32 based)
